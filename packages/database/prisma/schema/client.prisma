@@ -1,0 +1,22 @@
+// Клиенты, работающие с системой "СПИФА"
+// Клиенты добавляются администратором системы "СПИФА" на платной основе
+model Client {
+  id      String  @id @default(cuid())
+  logo    File?
+  name    String
+  address String?
+  phone   String?
+
+  // Список пользователей клиента
+  members Member[]
+
+  // Список клиента: "Компании"
+  companies Company[]
+
+  // Служебные поля
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([address, phone])
+  @@map("clients")
+}

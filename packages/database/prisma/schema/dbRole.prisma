@@ -1,0 +1,5 @@
+// Роль на уровне БД
+enum DBRole {
+  ADMINISTRATOR
+  USER
+}

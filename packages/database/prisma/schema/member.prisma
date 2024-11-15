@@ -1,0 +1,20 @@
+model Member {
+  id String @id @default(cuid())
+
+  // Клиент
+  client   Client @relation(fields: [clientId], references: [id])
+  clientId String
+
+  // Пользователь
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  // Роли внутри клиента
+  clientRoles ClientRole[] @default([EMPLOYEE])
+
+  // Служебные поля
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("members")
+}

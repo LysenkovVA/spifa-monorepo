@@ -1,0 +1,23 @@
+model File {
+  id   String @id @default(cuid())
+  path String
+  name String
+  type String
+  size Int
+
+  client   Client? @relation(fields: [clientId], references: [id])
+  clientId String? @unique
+
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String? @unique
+
+  company   Company? @relation(fields: [companyId], references: [id])
+  companyId String?  @unique
+
+  // Служебные поля
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([name])
+  @@map("files")
+}

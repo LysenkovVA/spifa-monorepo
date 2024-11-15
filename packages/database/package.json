@@ -1,0 +1,33 @@
+{
+  "name": "@spifa/database",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    ".": "./src/prismaClient.ts",
+    "./types": "./src/types/index.ts"
+  },
+  "scripts": {
+    "dev": "npm run prisma:client:generate",
+    "prisma:reset:db": "npx prisma migrate reset --force --skip-seed && npm run prisma:db:push",
+    "prisma:reset:db:seed": "npx prisma migrate reset --force --skip-seed && npm run prisma:db:dev",
+    "prisma:client:generate": "npm exec prisma generate",
+    "prisma:db:push": "npm exec prisma db push",
+    "prisma:db:pull": "npm exec prisma db pull",
+    "prisma:db:seed": "npx prisma db seed",
+    "prisma:initdb": "npm run prisma:migrate --name create_db && npm run prisma:db:seed",
+    "prisma:db:dev": "npm run prisma:db:push && npm run prisma:db:seed"
+  },
+  "devDependencies": {
+    "@spifa/eslint-config": "*",
+    "@spifa/typescript-config": "*",
+    "@types/node": "^22.9.0",
+    "prisma": "^5.22.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "pg": "^8.13.1",
+    "zod": "^3.23.8"
+  }
+}

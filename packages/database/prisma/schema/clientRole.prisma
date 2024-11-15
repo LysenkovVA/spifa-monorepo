@@ -1,0 +1,9 @@
+// Роль на уровне клиента
+enum ClientRole {
+  // Владелец
+  OWNER
+  // Администратор
+  ADMINISTRATOR
+  // Работник
+  EMPLOYEE
+}

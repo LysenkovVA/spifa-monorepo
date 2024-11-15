@@ -1,0 +1,55 @@
+model Company {
+  id               String         @id @default(cuid())
+  logo             File?
+  name             String
+  companyType      CompanyType?
+  management       String?
+  fio              String?
+  opf              String?
+  phone            String?
+  address          String?
+  status           CompanyStatus?
+  inn              String?
+  kpp              String?
+  ogrn             String?
+  ogrnDate         DateTime?
+  okato            String?
+  okpo             String?
+  okfs             String?
+  oktmo            String?
+  okogu            String?
+  okved            String?
+  actualityDate    DateTime?
+  registrationDate DateTime?
+  liquidationDate  DateTime?
+
+  client   Client? @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  clientId String?
+
+  // Служебные поля
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([name, inn])
+  @@map("companies")
+}
+
+enum CompanyType {
+  // Юридическое лицо
+  LEGAL
+  // ИП
+  INDIVIDUAL
+}
+
+enum CompanyStatus {
+  // Действующая
+  ACTIVE
+  // TODO
+  LIQUIDATING
+  // TODO
+  LIQUIDATED
+  // TODO
+  REORGANIZING
+  // TODO 
+  BANKRUPT
+}
