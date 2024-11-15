@@ -1,49 +1,30 @@
-# Turborepo starter
+[оформление документации](https://docs.github.com/ru/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
-This is an official starter Turborepo.
+# **SPIFA-MONOREPO**
 
-## Using this example
+# Монорепозиторий системы платежей и финансовой аналитики
 
-Run the following command:
+Монорепозиторий построен с помощью [Turborepo](https://turbo.build/repo/docs) — высокопроизводительной
+системы сборки для кодовых баз JavaScript и TypeScript. 
+Он предназначен для масштабирования монорепозиториев, а также ускоряет рабочие процессы в 
+рабочих пространствах с одним пакетом.
 
-```sh
-npx create-turbo@latest
-```
+### Оглавление
 
-## What's inside?
+[1. Структура проекта](./documentation/monorepo-structure.md)
 
-This Turborepo includes the following packages/apps:
+### Сборка
 
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+Для сборки всех приложений используется команда:
 
 ```
 cd my-turborepo
 pnpm build
 ```
 
-### Develop
+### Разработка
 
-To develop all apps and packages, run the following command:
+Для запуска в режиме разработки (все прилоежния) используется команда:
 
 ```
 cd my-turborepo

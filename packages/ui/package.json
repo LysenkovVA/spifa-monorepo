@@ -1,0 +1,19 @@
+{
+  "name": "@spifa/ui",
+  "type": "module",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./add": {
+      "types": "./src/add.ts",
+      "default": "./dist/add.js"
+    }
+  },
+  "devDependencies": {
+    "@spifa/typescript-config": "*",
+    "@spifa/eslint-config": "*",
+    "typescript": "^5.6.3"
+  }
+}
