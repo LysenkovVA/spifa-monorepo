@@ -6,14 +6,27 @@
     "build": "tsc"
   },
   "exports": {
-    "./add": {
-      "types": "./src/add.ts",
-      "default": "./dist/add.js"
+    "./shared/config/AntDesignConfigProvider": {
+      "types": "./src/shared/config/index.ts",
+      "default": "./src/shared/config/index.ts"
+    },
+    "./app": {
+      "types": "./src/app/index.ts",
+      "default": "./src/app/index.ts"
     }
   },
   "devDependencies": {
-    "@spifa/typescript-config": "*",
     "@spifa/eslint-config": "*",
+    "@spifa/typescript-config": "*",
+    "@types/node": "^20.17.6",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
     "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.1",
+    "antd": "^5.22.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

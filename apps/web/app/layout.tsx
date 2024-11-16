@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Header } from "../components/Header";
+import { AntDesignConfigProvider } from "@spifa/ui/shared/config/AntDesignConfigProvider";
+import { ReactNode } from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,14 +21,13 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div>
-          <Header />
-          {children}
+          <AntDesignConfigProvider>{children}</AntDesignConfigProvider>
         </div>
       </body>
     </html>

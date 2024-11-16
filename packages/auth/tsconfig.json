@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
+    "allowJs": true
   },
-  "include": ["src"],
+  "include": ["src", "next-auth.d.ts"],
   "exclude": ["node_modules", "dist"]
 }

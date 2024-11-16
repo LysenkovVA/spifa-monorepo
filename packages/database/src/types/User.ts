@@ -18,7 +18,7 @@ export interface User {
   phone?: string;
   dbRoles: Array<DBRole>;
 
-  members: Array<Member>;
+  members?: Array<Member>;
 
   createdAt?: Date;
   updatedAt?: Date;

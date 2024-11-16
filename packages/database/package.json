@@ -6,22 +6,19 @@
     ".": "./src/prismaClient.ts",
     "./types": "./src/types/index.ts"
   },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "scripts": {
-    "dev": "npm run prisma:client:generate",
-    "prisma:reset:db": "npx prisma migrate reset --force --skip-seed && npm run prisma:db:push",
-    "prisma:reset:db:seed": "npx prisma migrate reset --force --skip-seed && npm run prisma:db:dev",
-    "prisma:client:generate": "npm exec prisma generate",
-    "prisma:db:push": "npm exec prisma db push",
-    "prisma:db:pull": "npm exec prisma db pull",
-    "prisma:db:seed": "npx prisma db seed",
-    "prisma:initdb": "npm run prisma:migrate --name create_db && npm run prisma:db:seed",
-    "prisma:db:dev": "npm run prisma:db:push && npm run prisma:db:seed"
+    "dev": "npm exec prisma generate",
+    "prisma:db:init": "npm run dev && npx prisma migrate reset --force --skip-seed && npm exec prisma db push && npx prisma db seed"
   },
   "devDependencies": {
     "@spifa/eslint-config": "*",
     "@spifa/typescript-config": "*",
     "@types/node": "^22.9.0",
     "prisma": "^5.22.0",
+    "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   },
