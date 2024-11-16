@@ -13,6 +13,10 @@
     "./app": {
       "types": "./src/app/index.ts",
       "default": "./src/app/index.ts"
+    },
+    "./widgets": {
+      "types": "./src/widgets/index.ts",
+      "default": "./src/widgets/index.ts"
     }
   },
   "devDependencies": {
