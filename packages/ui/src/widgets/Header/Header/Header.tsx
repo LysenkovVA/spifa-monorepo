@@ -10,7 +10,11 @@
 
 import { CSSProperties, memo } from "react";
 import { Flex } from "antd";
-import { HEADER_HEIGHT, SIDE_MENU_WIDTH } from "../../../app/config/consts";
+import {
+  HEADER_COLOR,
+  HEADER_HEIGHT,
+  SIDE_MENU_WIDTH,
+} from "../../../app/config/consts";
 import { Logo } from "../../../shared/ui/Logo";
 import { LogoutButton } from "../LogoutButton/LogoutButton";
 
@@ -24,7 +28,7 @@ export const Header = memo((props: HeaderProps) => {
     <Flex
       style={{
         height: HEADER_HEIGHT,
-        backgroundColor: "darkgray",
+        backgroundColor: HEADER_COLOR,
         width: "100%",
         ...style,
       }}

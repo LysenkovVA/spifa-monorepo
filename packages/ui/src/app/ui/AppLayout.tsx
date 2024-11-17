@@ -11,7 +11,18 @@ import {
   Footer as AntFooter,
   Header as AntHeader,
 } from "antd/es/layout/layout";
-import { FOOTER_HEIGHT, HEADER_HEIGHT } from "../config/consts";
+import {
+  CONTENT_MARGIN,
+  CONTENT_PADDING,
+  FOOTER_HEIGHT,
+  FOOTER_MARGIN,
+  FOOTER_PADDING,
+  HEADER_HEIGHT,
+  HEADER_MARGIN,
+  HEADER_PADDING,
+  SIDE_MENU_MARGIN,
+  SIDE_MENU_PADDING,
+} from "../config/consts";
 import Sider from "antd/es/layout/Sider";
 import { ContentWrapper } from "../../shared/ui/ContentWrapper";
 import { Header } from "../../widgets";
@@ -21,24 +32,27 @@ export const AppLayout = ({ children }: { children: ReactNode }) => {
     <Layout>
       <AntHeader
         style={{
-          margin: 0,
-          padding: 0,
+          margin: HEADER_MARGIN,
+          padding: HEADER_PADDING,
           height: HEADER_HEIGHT,
-          backgroundColor: "yellow",
         }}
       >
         <Header />
       </AntHeader>
       <Content
         style={{
-          height: `calc(100vh - 2 * ${HEADER_HEIGHT}px)`,
+          height: `calc(100vh - ${HEADER_HEIGHT}px - ${FOOTER_HEIGHT}px)`,
+          margin: CONTENT_MARGIN,
+          padding: CONTENT_PADDING,
         }}
       >
         <Layout style={{ borderRadius: "0px 12px 12px 0px" }}>
           <Sider
             style={{
-              height: `calc(100vh - ${HEADER_HEIGHT}px - ${FOOTER_HEIGHT}px)`,
+              height: `calc(100vh - ${HEADER_HEIGHT}px - ${FOOTER_HEIGHT}px - 2*${SIDE_MENU_MARGIN}px)`,
               backgroundColor: "red",
+              margin: SIDE_MENU_MARGIN,
+              padding: SIDE_MENU_PADDING,
             }}
             width={200}
           >
@@ -59,8 +73,8 @@ export const AppLayout = ({ children }: { children: ReactNode }) => {
       <AntFooter
         style={{
           height: FOOTER_HEIGHT,
-          margin: 0,
-          padding: 0,
+          margin: FOOTER_MARGIN,
+          padding: FOOTER_PADDING,
           backgroundColor: "orange",
         }}
       >
