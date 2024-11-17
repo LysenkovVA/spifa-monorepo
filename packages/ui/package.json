@@ -23,14 +23,14 @@
     "@spifa/eslint-config": "*",
     "@spifa/typescript-config": "*",
     "@types/node": "^20.17.6",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0",
     "typescript": "^5.6.3"
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.1",
     "antd": "^5.22.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   }
 }

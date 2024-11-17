@@ -4,6 +4,7 @@ import { Col, Row, RowProps } from "antd";
 export interface PublicPageWrapperProps extends Omit<RowProps, "children"> {
   children?: ReactNode;
   height?: string | number | undefined;
+  style?: React.CSSProperties;
 }
 
 /**

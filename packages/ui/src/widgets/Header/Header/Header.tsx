@@ -10,7 +10,9 @@
 
 import { CSSProperties, memo } from "react";
 import { Flex } from "antd";
-import { HEADER_HEIGHT } from "../../../app/config/consts";
+import { HEADER_HEIGHT, SIDE_MENU_WIDTH } from "../../../app/config/consts";
+import { Logo } from "../../../shared/ui/Logo";
+import { LogoutButton } from "../LogoutButton/LogoutButton";
 
 export interface HeaderProps {
   style?: CSSProperties;
@@ -26,8 +28,17 @@ export const Header = memo((props: HeaderProps) => {
         width: "100%",
         ...style,
       }}
+      align={"center"}
+      justify={"start"}
     >
-      <div>Header</div>
+      <Logo style={{ width: SIDE_MENU_WIDTH, padding: 16 }} />
+      <Flex
+        style={{ width: "100%", paddingRight: 16 }}
+        align={"center"}
+        justify={"end"}
+      >
+        <LogoutButton />
+      </Flex>
     </Flex>
   );
 });

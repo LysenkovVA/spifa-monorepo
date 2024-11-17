@@ -14,6 +14,7 @@ import {
 import { FOOTER_HEIGHT, HEADER_HEIGHT } from "../config/consts";
 import Sider from "antd/es/layout/Sider";
 import { ContentWrapper } from "../../shared/ui/ContentWrapper";
+import { Header } from "../../widgets";
 
 export const AppLayout = ({ children }: { children: ReactNode }) => {
   return (
@@ -26,8 +27,7 @@ export const AppLayout = ({ children }: { children: ReactNode }) => {
           backgroundColor: "yellow",
         }}
       >
-        <div>Header</div>
-        {/*<Header />*/}
+        <Header />
       </AntHeader>
       <Content
         style={{
