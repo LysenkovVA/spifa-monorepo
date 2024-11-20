@@ -6,10 +6,6 @@
     "build": "tsc"
   },
   "exports": {
-    "./shared/config/AntDesignConfigProvider": {
-      "types": "./src/shared/config/index.ts",
-      "default": "./src/shared/config/index.ts"
-    },
     "./app": {
       "types": "./src/app/index.ts",
       "default": "./src/app/index.ts"
@@ -17,11 +13,20 @@
     "./widgets": {
       "types": "./src/widgets/index.ts",
       "default": "./src/widgets/index.ts"
+    },
+    "./features": {
+      "types": "./src/features/index.ts",
+      "default": "./src/features/index.ts"
+    },
+    "./shared": {
+      "types": "./src/shared/index.ts",
+      "default": "./src/shared/index.ts"
     }
   },
   "devDependencies": {
     "@spifa/eslint-config": "*",
     "@spifa/typescript-config": "*",
+    "@spifa/database": "*",
     "@types/node": "^20.17.6",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.0",

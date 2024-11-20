@@ -2,4 +2,6 @@
  * Lysenkov Viktor (c) 2024
  */
 
-export * from "./Logo";
+import Logo from "./Logo";
+
+export { Logo };

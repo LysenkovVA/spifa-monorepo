@@ -10,7 +10,7 @@ export interface LogoProps {
   style?: CSSProperties;
 }
 
-export const Logo = memo((props: LogoProps) => {
+const Logo = memo((props: LogoProps) => {
   const { style } = props;
   return (
     <Image

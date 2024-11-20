@@ -1,3 +1,3 @@
-import { ContentWrapper } from "./ui/ContentWrapper";
+import ContentWrapper from "./ui/ContentWrapper";
 
 export { ContentWrapper };

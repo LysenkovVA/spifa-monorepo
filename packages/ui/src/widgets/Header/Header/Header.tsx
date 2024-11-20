@@ -2,10 +2,6 @@
  * Lysenkov Viktor (c) 2024
  */
 
-/*
- * Lysenkov Viktor (c) 2024
- */
-
 "use client";
 
 import { CSSProperties, memo } from "react";
@@ -14,16 +10,18 @@ import {
   HEADER_COLOR,
   HEADER_HEIGHT,
   SIDE_MENU_WIDTH,
-} from "../../../app/config/consts";
-import { Logo } from "../../../shared/ui/Logo";
-import { LogoutButton } from "../LogoutButton/LogoutButton";
+} from "@/app/config/consts";
+import { Logo } from "@/shared/ui/Logo";
+import LogoutButton from "../LogoutButton/LogoutButton";
+import { Avatar } from "@/shared/ui/Avatar";
 
 export interface HeaderProps {
   style?: CSSProperties;
+  onLogout?: () => void;
 }
 
-export const Header = memo((props: HeaderProps) => {
-  const { style } = props;
+const Header = memo((props: HeaderProps) => {
+  const { style, onLogout } = props;
   return (
     <Flex
       style={{
@@ -41,7 +39,10 @@ export const Header = memo((props: HeaderProps) => {
         align={"center"}
         justify={"end"}
       >
-        <LogoutButton />
+        <Flex gap={16} align={"center"} justify={"center"}>
+          <Avatar />
+          <LogoutButton onClick={onLogout} />
+        </Flex>
       </Flex>
     </Flex>
   );

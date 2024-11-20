@@ -1,7 +1,8 @@
 /*
  * Lysenkov Viktor (c) 2024
  */
+"use client";
 
-export default async function CompaniesPage() {
-  return <div>This is companies page</div>;
+export default function CompaniesPage() {
+  return <div>COMPANIES PAGE</div>;
 }
