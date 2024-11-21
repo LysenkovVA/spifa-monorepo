@@ -18,12 +18,11 @@ export async function loginAction(user: User) {
       redirect: false,
     });
   } catch (error) {
-    if (error instanceof UserNotFoundError) {
-      throw new Error("Пользователь не найден!");
-    }
-
-    if (error instanceof InvalidCredentialsError) {
-      throw new Error("Неверный пароль!");
+    if (
+      error instanceof UserNotFoundError ||
+      error instanceof InvalidCredentialsError
+    ) {
+      throw new Error(error?.message);
     }
 
     throw error;

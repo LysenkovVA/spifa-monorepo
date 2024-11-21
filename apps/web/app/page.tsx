@@ -26,7 +26,7 @@ export default function Home() {
           (error) => {
             notification.error({
               message: error.message,
-              duration: 5,
+              duration: 3,
               closable: false,
               placement: "top",
             });

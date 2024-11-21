@@ -9,10 +9,22 @@ import prisma from "@spifa/database";
 // ❗️Все ошибки должны быть обработаны в loginAction
 export class UserNotFoundError extends CredentialsSignin {
   code = "user_not_found";
+  message: string;
+
+  constructor(message?: string) {
+    super(message ?? "Пользователь не найден");
+    this.message = message ?? "Пользователь не найден";
+  }
 }
 
 export class InvalidCredentialsError extends CredentialsSignin {
   code = "invalid_credentials";
+  message: string;
+
+  constructor(message?: string) {
+    super(message ?? "Неверный пароль");
+    this.message = message ?? "Неверный пароль";
+  }
 }
 
 export const authConfig: NextAuthConfig = {
@@ -55,7 +67,9 @@ export const authConfig: NextAuthConfig = {
         });
 
         if (!candidate) {
-          throw new UserNotFoundError("Пользователь не найден!");
+          throw new UserNotFoundError(
+            `Пользователь '${credentials.login}' не найден`,
+          );
         }
 
         const match = bcrypt.compareSync(
@@ -64,7 +78,7 @@ export const authConfig: NextAuthConfig = {
         );
 
         if (!match) {
-          throw new InvalidCredentialsError("Неверный пароль!");
+          throw new InvalidCredentialsError();
         }
 
         const { hashedPassword, ...userWithoutPass } = candidate;
