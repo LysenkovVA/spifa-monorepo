@@ -1,10 +1,19 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import type { Adapter } from "next-auth/adapters"; // Нужно это добавить, чтоб не было ошибки в adapter https://stackoverflow.com/questions/76503606/next-auth-error-adapter-is-not-assignable-to-type-adapter-undefined
 import { PrismaAdapter } from "@auth/prisma-adapter";
-import { NextAuthConfig } from "next-auth";
+import { CredentialsSignin, NextAuthConfig } from "next-auth";
 import bcrypt from "bcryptjs";
 import { User as UserEntity } from "@spifa/database/types";
 import prisma from "@spifa/database";
+
+// ❗️Все ошибки должны быть обработаны в loginAction
+export class UserNotFoundError extends CredentialsSignin {
+  code = "user_not_found";
+}
+
+export class InvalidCredentialsError extends CredentialsSignin {
+  code = "invalid_credentials";
+}
 
 export const authConfig: NextAuthConfig = {
   adapter: PrismaAdapter(prisma) as Adapter,
@@ -46,7 +55,7 @@ export const authConfig: NextAuthConfig = {
         });
 
         if (!candidate) {
-          throw new Error("Пользователь не найден!");
+          throw new UserNotFoundError("Пользователь не найден!");
         }
 
         const match = bcrypt.compareSync(
@@ -55,7 +64,7 @@ export const authConfig: NextAuthConfig = {
         );
 
         if (!match) {
-          throw new Error("Неверный пароль!");
+          throw new InvalidCredentialsError("Неверный пароль!");
         }
 
         const { hashedPassword, ...userWithoutPass } = candidate;

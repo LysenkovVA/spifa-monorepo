@@ -2,7 +2,7 @@
  * Lysenkov Viktor (c) 2024
  */
 
-import { ConfigProvider } from "antd";
+import { App, ConfigProvider } from "antd";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { ReactNode } from "react";
 import ru_RU from "antd/lib/locale/ru_RU";
@@ -19,7 +19,13 @@ export const AntDesignConfigProvider = ({
 }) => {
   return (
     <ConfigProvider locale={ru_RU}>
-      <AntdRegistry>{children}</AntdRegistry>
+      <App style={{ width: "100%" }}>
+        <AntdRegistry>{children}</AntdRegistry>
+      </App>
     </ConfigProvider>
   );
 };
+
+// Для глобального использования различных уведомлений
+// через хук AntDApp.useApp()
+export { App as AntDApp };

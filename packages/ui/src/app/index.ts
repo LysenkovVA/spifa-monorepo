@@ -3,6 +3,9 @@
  */
 
 import AppLayout from "./ui/AppLayout";
-import { AntDesignConfigProvider } from "./config/AntDesignConfigProvider/AntDesignConfigProvider";
+import {
+  AntDApp,
+  AntDesignConfigProvider,
+} from "./config/AntDesignConfigProvider/AntDesignConfigProvider";
 
-export { AppLayout, AntDesignConfigProvider };
+export { AppLayout, AntDesignConfigProvider, AntDApp };

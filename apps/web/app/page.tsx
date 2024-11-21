@@ -4,10 +4,12 @@ import { loginAction } from "../actions/loginAction";
 import { useSession } from "../auth";
 import { redirect, RedirectType, useRouter } from "next/navigation";
 import { User } from "@spifa/database/types";
+import { AntDApp } from "@spifa/ui/app";
 
 export default function Home() {
   const session = useSession();
   const router = useRouter();
+  const { notification } = AntDApp.useApp();
 
   if (session?.data?.user?.id) {
     redirect("/companies", RedirectType.replace);
@@ -17,9 +19,19 @@ export default function Home() {
     <LoginForm
       style={{ width: "30%" }}
       onSubmit={(user: User) => {
-        loginAction(user).then(() => {
-          router.push("/companies");
-        });
+        const response = loginAction(user).then(
+          (onfulfilled) => {
+            router.push("/companies");
+          },
+          (error) => {
+            notification.error({
+              message: error.message,
+              duration: 5,
+              closable: false,
+              placement: "top",
+            });
+          },
+        );
       }}
     />
   );
