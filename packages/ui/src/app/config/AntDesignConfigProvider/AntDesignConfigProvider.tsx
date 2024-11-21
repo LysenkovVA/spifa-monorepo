@@ -19,7 +19,16 @@ export const AntDesignConfigProvider = ({
 }) => {
   return (
     <ConfigProvider locale={ru_RU}>
-      <App style={{ width: "100%" }}>
+      <App
+        style={{
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          minHeight: "100vh",
+        }}
+      >
         <AntdRegistry>{children}</AntdRegistry>
       </App>
     </ConfigProvider>
